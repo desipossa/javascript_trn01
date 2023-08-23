@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content .itm {
+            display: none;
+        }
+
+        .content .itm.on {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="txt">텝메뉴</h1>
+    <ul class="menu">
+        <li><a href="?tab=1">menu01</a></li>
+        <li><a href="?tab=2">menu02</a></li>
+        <li><a href="?tab=3">menu03</a></li>
+    </ul>
+    <div class="content">
+        <div class="itm">content01</div>
+        <div class="itm">content02</div>
+        <div class="itm">content03</div>
+    </div>
+    <script>
+        // 1. URLSearchParams 객체 생성
+        const url = new URLSearchParams(window.location.search);
+        let num = url.get('tab');
+
+        const content = document.querySelectorAll('.itm');
+        content[num - 1].classList.add('on')
+
+
+    </script>
+</body>
+
+</html>

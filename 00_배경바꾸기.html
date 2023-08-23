@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            transition: 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <button>bg_change</button>
+    <script>
+        const BODY = document.querySelector('body');
+        const BTN = document.querySelector('button');
+
+        const BGC = () => {
+            const BG_COLOR1 = [];
+            const BG_COLOR2 = [];
+            const TBG = new Set([BG_COLOR1, BG_COLOR2]);
+            for (let i = 0; i < 3; i++) {
+                const n1 = Math.floor(Math.random() * 255 + 1);
+                const n2 = Math.floor(Math.random() * 255 + 1);
+                BG_COLOR1.push(n1);
+                BG_COLOR2.push(n2);
+            }
+            console.log(BG_COLOR1, [...TBG][0], [...TBG][1]);
+            BODY.style.background = `linear-gradient(to left,rgb(${[...TBG][0][0]},${[...TBG][0][1]},${[...TBG][0][2]}),rgb(${[...TBG][1][0]},${[...TBG][1][1]},${[...TBG][1][2]}))`;
+        }
+
+        BGC();
+
+        BTN.addEventListener('click', BGC);
+
+    </script>
+</body>
+
+</html>

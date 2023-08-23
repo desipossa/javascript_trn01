@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="T"></div>
+    <select name="바뀐거" id="A">
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+    </select>
+
+
+
+    <script>
+        // T.addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     // console.log(e.target.value)
+        // });
+        A.addEventListener('change', (e) => {
+            //e.preventDefault();
+            const { value, name } = e.target;
+            T.innerText = value + ' ' + name;
+            // const renderedText = htmlElement.innerText;
+        });
+
+    </script>
+</body>
+
+</html>

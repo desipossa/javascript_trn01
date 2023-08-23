@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #text {
+            position: fixed;
+            inset: 50% auto auto 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+        }
+
+        #text span {}
+    </style>
+</head>
+
+<body>
+
+
+    <div id="text"></div>
+
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            //console.log(document.querySelector('#text').innerText);
+
+            const TX = document.querySelector('#text');
+            function T(t) {
+                console.log(t);
+                const T = [...t].map(it => TX.innerHTML += `<span>${it}</span>`);
+                //TX.innerHTML = T;
+                const SPAN = [...TX.children]
+                SPAN.forEach((it, idx) => {
+                    it.style.cssText = `
+                    position: absolute;
+                    inset: 0 auto auto 50%;
+                    transform: translate(-50%, 0) rotate(${idx * (360 / SPAN.length)}deg);
+                    transform-origin: bottom center;
+                    height: ${TX.clientHeight / 2}px;
+                   
+                    `
+                })
+            }
+
+            T('우리나라대한민국가자기영아순이야,나는나프다.');
+
+
+        })
+    </script>
+</body>
+
+</html>
